@@ -1,0 +1,66 @@
+[package]
+name = "zmro-core"
+version = "0.1.0"
+edition = "2021"
+
+# Metadata about the authors and repository (optional but recommended)
+authors = ["nzengi"]
+description = "A blockchain project implementing the MRO-Enhanced Consensus Mechanism."
+license = "MIT"
+repository = "https://github.com/nzengi/zmro-core"
+
+[dependencies]
+# Web framework for building the API
+actix-web = "4.0"
+
+# ORM for database access
+diesel = { version = "1.4.8", features = ["sqlite", "postgres", "r2d2"] }
+
+# Serialization and deserialization of data
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Cryptographic utilities
+ring = "0.16.20"
+
+# HTTP client and Web3 support for interacting with EVM-compatible blockchains
+web3 = "0.15.0"
+reqwest = { version = "0.11", features = ["json"] }
+
+# Redis for caching
+redis = "0.23.0"
+
+# Configuration management
+config = "0.13"
+
+# Logging
+log = "0.4"
+env_logger = "0.10"
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Mathematical utilities
+nalgebra = "0.29"
+rand = "0.8"
+
+# Unit testing and integration testing
+actix-rt = "2.5"
+actix-testing = "0.4"
+
+# For procedural macros, if needed
+# e.g., diesel derives, serde derives, etc.
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "1.0", features = ["full"] }
+
+[dev-dependencies]
+# Testing framework
+actix-test = "0.4"
+actix-web = { version = "4.0", features = ["test"] }
+
+# Benchmarking and performance tests
+criterion = "0.3"
+
+[features]
+default = ["sqlite", "postgres"]
